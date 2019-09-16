@@ -172,6 +172,7 @@ impl Workspace {
     /// Remove all the contents of all the build directories, freeing disk space.
     pub fn purge_all_build_dirs(&self) -> Result<(), Error> {
         let dir = self.builds_dir();
+        info!("{:?}", dir);
         if dir.exists() {
             remove_dir_all(&dir)?;
         }
